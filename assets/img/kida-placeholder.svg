@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 600" role="img" aria-label="顔写真の仮置き">
+  <rect width="480" height="600" fill="#F4F2ED"/>
+  <rect x="0.5" y="0.5" width="479" height="599" fill="none" stroke="#DFDCD4"/>
+  <circle cx="240" cy="248" r="76" fill="#DFDCD4"/>
+  <path d="M112 452c0-70 57-118 128-118s128 48 128 118z" fill="#DFDCD4"/>
+  <text x="240" y="524" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#5A5A56">顔写真（差し替え）</text>
+</svg>

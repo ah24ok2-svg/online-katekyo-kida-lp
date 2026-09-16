@@ -1,0 +1,353 @@
+@charset "utf-8";
+
+/* ========================================
+   トークン
+   ======================================== */
+:root {
+  color-scheme: light;
+
+  --paper:    #FDFCFA;
+  --ink:      #1A1A1A;
+  --graphite: #5A5A56;
+  --rule:     #DFDCD4;
+  --vermil:   #D0332A;
+  --vermil-d: #A82820;
+
+  --serif: "Zen Old Mincho", serif;
+  --sans:  "Zen Kaku Gothic New", sans-serif;
+
+  --measure: 34em;          /* 日本語本文 1行 30〜38文字 */
+  --gutter: 1.5rem;
+  --section-gap: 4.5rem;    /* セクション間の余白はここだけで管理する */
+}
+
+/* ========================================
+   ベース
+   ======================================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.9;
+  font-feature-settings: "palt";
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+}
+
+h2 {
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  line-height: 1.5;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+p { margin: 0; }
+
+a { color: var(--ink); }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   レイアウト
+   ======================================== */
+.wrap {
+  width: 100%;
+  max-width: calc(var(--measure) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* セクションの縦余白は .section のみが持つ */
+.section {
+  padding-block: var(--section-gap);
+}
+
+/* セクション内の縦リズム */
+.section .wrap > * + * { margin-top: 1.5rem; }
+.section .wrap > h3 { margin-top: 2.5rem; }
+.section .wrap > h3 + p { margin-top: 0.75rem; }
+
+/* ========================================
+   ヒーロー
+   ======================================== */
+.hero {
+  padding-top: 3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero .lede { color: var(--graphite); }
+
+.hero-photo img {
+  width: 100%;
+  max-width: 260px;
+  margin-bottom: 2rem;
+}
+
+.section .hero-grid > * + * { margin-top: 0; }
+
+.hero-body > * + * { margin-top: 1.5rem; }
+
+/* ========================================
+   テキスト部品
+   ======================================== */
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li {
+  padding: 0.75rem 0 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--rule);
+  text-indent: -1.25rem;
+}
+
+.list li::before {
+  content: "―";
+  color: var(--graphite);
+  margin-right: 0.5rem;
+}
+
+.accept { color: var(--graphite); }
+
+/* 朱の2用途のうちのひとつ：重要な一文の下線 */
+.mark {
+  border-bottom: 2px solid var(--vermil);
+  padding-bottom: 0.1em;
+}
+
+.note {
+  color: var(--graphite);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+/* ========================================
+   指導の流れ
+   ======================================== */
+.steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  counter-increment: step;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.steps li h3 { margin: 0; }
+
+.steps li h3::before {
+  content: counter(step) ".";
+  font-family: var(--serif);
+  color: var(--graphite);
+  margin-right: 0.5rem;
+}
+
+.steps li p { margin-top: 0.25rem; }
+
+/* ========================================
+   よくある質問
+   ======================================== */
+details {
+  border-bottom: 1px solid var(--rule);
+}
+
+/* 罫線を連続させるため、項目間の余白は持たせない */
+.section .wrap > details + details { margin-top: 0; }
+
+summary {
+  padding: 1rem 1.75rem 1rem 0;
+  font-family: var(--serif);
+  font-weight: 500;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+}
+
+summary::-webkit-details-marker { display: none; }
+
+summary::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 1rem;
+  color: var(--graphite);
+  font-family: var(--sans);
+}
+
+details[open] > summary::after { content: "−"; }
+
+details > p {
+  padding: 0 0 1.25rem;
+  color: var(--graphite);
+}
+
+/* ========================================
+   自己紹介動画（撮影後に使用）
+   ======================================== */
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--rule);
+}
+
+.video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ========================================
+   CTA
+   ======================================== */
+.cta-row { line-height: 1; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0.75rem 2rem;
+  background: var(--vermil);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.btn:hover,
+.btn:focus-visible { background: var(--vermil-d); }
+
+.btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* ========================================
+   フッター
+   ======================================== */
+.footer {
+  border-top: 1px solid var(--rule);
+}
+
+.foot-links a {
+  display: inline-block;
+  min-height: 44px;
+  line-height: 44px;
+  margin-right: 1.5rem;
+  color: var(--graphite);
+  font-size: 0.875rem;
+  text-underline-offset: 0.25em;
+}
+
+/* ========================================
+   法務ページ
+   ======================================== */
+.doc dt {
+  margin-top: 1.5rem;
+  font-family: var(--serif);
+  font-weight: 500;
+}
+
+.doc dd {
+  margin: 0.25rem 0 0;
+  color: var(--graphite);
+}
+
+.doc h2 + p { margin-top: 1.5rem; }
+
+.back {
+  color: var(--graphite);
+  font-size: 0.875rem;
+}
+
+/* ========================================
+   デスクトップ：ヒーローのみ2カラム
+   ======================================== */
+@media (min-width: 1024px) {
+  :root { --section-gap: 6rem; }
+
+  /* 中央の列を --measure に固定し、写真は右の余白に置く。
+     これで見出しの左端が以降のセクションと揃う */
+  .hero .wrap { max-width: none; }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, var(--measure)) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  /* DOM はモバイル優先で写真が先。デスクトップでは同じ行に並べる */
+  .hero-body { grid-column: 2; grid-row: 1; }
+
+  .hero-photo {
+    grid-column: 3;
+    grid-row: 1;
+    padding-left: 3rem;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    max-width: 17rem;
+    margin-bottom: 0;
+  }
+}
+
+/* ========================================
+   モーション
+   ======================================== */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-body,
+  .hero-photo {
+    animation: rise 0.6s ease-out both;
+  }
+  .hero-photo { animation-delay: 0.1s; }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to   { opacity: 1; transform: none; }
+}
