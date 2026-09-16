@@ -59,6 +59,18 @@ def fill(text: str) -> str:
     return re.sub(r"\{\{([^}]+)\}\}", repl, text)
 
 
+def localize_cta(html: str) -> str:
+    """仮の問い合わせ先がページ内アンカーのとき、新規タブ指定を外す。
+
+    本番の Google フォーム URL は別タブで開く仕様なので、ソース側の
+    target="_blank" はそのまま。プレビューで同じページが新規タブに
+    開くのを避けるための処理に限る。
+    """
+    if not VALUES.get("問い合わせ先", "").startswith("#"):
+        return html
+    return re.sub(r'(<a class="btn" href="#[^"]*")\s+target="_blank"\s+rel="noopener"', r"\1", html)
+
+
 def decorate(html: str) -> str:
     """noindex と告知バーを差し込む。"""
     if not re.search(r'<meta\s+name="robots"', html):
@@ -85,7 +97,7 @@ def main() -> int:
         dst.parent.mkdir(parents=True, exist_ok=True)
 
         if src.suffix == ".html":
-            dst.write_text(decorate(fill(src.read_text(encoding="utf-8"))), encoding="utf-8")
+            dst.write_text(decorate(localize_cta(fill(src.read_text(encoding="utf-8")))), encoding="utf-8")
         elif src.name == "robots.txt":
             # プレビューの間は全ページをクロール対象外にする
             dst.write_text("User-agent: *\nDisallow: /\n", encoding="utf-8")
