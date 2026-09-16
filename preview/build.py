@@ -19,7 +19,7 @@ VALUES = json.loads((ROOT / "preview" / "values.json").read_text(encoding="utf-8
 
 # 出力しないもの（プレビューの成果物に混ぜる必要がない）
 EXCLUDE_DIRS = {".git", ".github", "preview", "_site", "node_modules"}
-EXCLUDE_FILES = {"README.md"}
+EXCLUDE_FILES = {"README.md", ".gitignore"}
 
 BANNER = """<div class="preview-bar">
   <p>これは仕様確認用のプレビューです。金額・指導歴・受付枠などの数値は<strong>すべて仮のもの</strong>で、確定していません。</p>

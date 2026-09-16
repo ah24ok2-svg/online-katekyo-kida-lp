@@ -27,11 +27,10 @@ jobs:
       - name: プレビュー用の仮データを流し込む
         run: python3 preview/build.py _site
 
-      - name: Pages を有効化して設定を取得
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
+      # actions/configure-pages は使わない。出力を参照していないうえ、
+      # GITHUB_TOKEN では Pages サイトの新規作成が許可されておらず
+      # （Resource not accessible by integration）、ここで必ず失敗するため。
+      # Pages の有効化は Settings から一度だけ手動で行う（README 参照）。
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

@@ -89,6 +89,16 @@ Google フォームの項目は6つに絞る（保護者氏名 / メールアド
 
 仮の値を変えたいときは `preview/values.json` を編集して push してください。
 
+### 初回だけ必要な設定
+
+GitHub Pages の有効化だけは Actions から自動化できません
+（`GITHUB_TOKEN` に Pages サイトの新規作成権限がないため）。
+**リポジトリの Settings → Pages → Build and deployment → Source を「GitHub Actions」に変更**してください。
+一度設定すれば、以降は push のたびに自動でデプロイされます。
+
+設定後、Actions タブの「Preview on GitHub Pages」から Re-run するか、何か push すると公開されます。
+URL は `https://ah24ok2-svg.github.io/online-katekyo-kida-lp/` です。
+
 ### ローカルで同じものを見る
 
 ```sh
