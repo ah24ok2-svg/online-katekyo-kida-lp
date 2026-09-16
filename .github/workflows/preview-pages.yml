@@ -1,0 +1,47 @@
+# 仕様確認用のプレビューを GitHub Pages に出す。
+# ソースの {{ }} はそのままに、preview/build.py が仮データを流し込んだものを配信する。
+# 本番公開に切り替えるときは README「本番公開に切り替える」を参照。
+name: Preview on GitHub Pages
+
+on:
+  push:
+    branches:
+      - claude/new-session-c1a0ms
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: プレビュー用の仮データを流し込む
+        run: python3 preview/build.py _site
+
+      - name: Pages を有効化して設定を取得
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
