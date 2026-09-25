@@ -13,8 +13,7 @@
 │   ├── css/style.css
 │   └── img/
 │       ├── favicon.svg
-│       ├── kida-placeholder.svg   顔写真の仮置き
-│       ├── kida.jpg               ← 顔写真（未配置）
+│       ├── kida.jpg               顔写真
 │       └── ogp.jpg                ← OGP 画像 1200x630（未配置）
 ├── robots.txt
 ├── preview/                  プレビュー専用（本番公開時に削除する）
@@ -41,8 +40,6 @@ grep -rno '{{[^}]*}}' index.html legal/index.html privacy/index.html | sort -u -
 |---|---|---|
 | `{{指導歴}}` | 指導年数。**SNS・既存ポートフォリオと数字を必ず統一する**（既存は「11年」、SNS は「16年」を使用予定） | index（meta / ヒーロー / 講師について） |
 | `{{料金}}` | 月額（税込表記） | index, legal |
-| `{{対応学年}}` | 例：小6〜中3 | index（meta / ヒーロー） |
-| `{{対応科目}}` | 例：英語・数学・国語 | index（ヒーロー / JSON-LD） |
 | `{{授業時間}}` | 1回あたりの分数 | index, legal |
 | `{{受付枠}}` | 現在の空き枠数 | index（ヒーロー / 申し込み） |
 | `{{屋号}}` | 特商法表記に使う事業者名 | legal, privacy |
@@ -59,7 +56,6 @@ Google フォームの項目は6つに絞る（保護者氏名 / メールアド
 
 ### 2. 画像を置く
 
-- `assets/img/kida.jpg` — 顔写真（正面・明るい・私服可）。置いたら `index.html` のヒーローの `src` を `assets/img/kida-placeholder.svg` から差し替える。
 - `assets/img/ogp.jpg` — 1200x630。meta タグは配置済みなので、ファイルを置くだけで有効になる。
 
 ### 3. URL を確認する
