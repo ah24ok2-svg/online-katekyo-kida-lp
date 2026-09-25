@@ -126,7 +126,10 @@ img {
 .hang { margin-left: -0.5em; }
 
 /* 語の途中で折り返さないためのまとまり */
-.nb { display: inline-block; }
+.nb {
+  display: inline-block;
+  text-indent: 0;   /* .list のぶら下げ（負の text-indent）を引き継がない */
+}
 
 .section .hero-grid > * + * { margin-top: 0; }
 
