@@ -22,7 +22,7 @@ EXCLUDE_DIRS = {".git", ".github", "preview", "_site", "node_modules"}
 EXCLUDE_FILES = {"README.md", ".gitignore"}
 
 BANNER = """<div class="preview-bar">
-  <p>これは仕様確認用のプレビューです。料金・授業時間・連絡先などは<strong>仮の値</strong>で、確定していません。</p>
+  <p>これは公開前の<strong>確認用プレビュー</strong>です。検索エンジンには表示されません。</p>
 </div>
 """
 

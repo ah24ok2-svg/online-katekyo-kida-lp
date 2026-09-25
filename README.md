@@ -38,9 +38,7 @@ HTML 内に `{{ }}` の形で残しています。**全て埋めるまで公開�
 grep -rno '{{[^}]*}}' index.html legal/index.html privacy/index.html | sort -u -t: -k3
 ```
 
-| プレースホルダ | 内容 | 使用箇所 |
-|---|---|---|
-| `{{問い合わせ先}}` | Google フォームの URL（家庭教師用を新規作成する。AI 相談フォームは流用しない） | index（CTA 2箇所 / JSON-LD） |
+現在、未入力のプレースホルダはありません（上の grep で 0 件になることを確認する）。
 
 Google フォームの項目は6つに絞る（保護者氏名 / メールアドレス / お子様の学年 / 現在の学習状況 / ご相談内容 / 希望する連絡方法）。成績や志望校は相談時に聞く。
 
@@ -114,6 +112,7 @@ cd _site && python3 -m http.server 8000
 - 支払時期：月末締め・翌月末払い（後払いのため返金は発生しない）
 - 事業者名：木田健太郎／所在地：埼玉県（詳細は請求時に開示）
 - 連絡先：ah24o.k2@gmail.com／080-4500-6412
+- 問い合わせフォーム：https://docs.google.com/forms/d/e/1FAIpQLScOPqG9miC_g9i534J-79wYgB1RrjtzoHpHmGFj-Q4R5QNJWg/viewform
 
 ## 書くときの原則（編集時も維持する）
 
