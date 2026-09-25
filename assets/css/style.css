@@ -237,16 +237,18 @@ img {
   gap: 0.75rem;
 }
 
+/* 左に説明、右に数字。数字は右端で揃える */
 .stats li {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  justify-content: space-between;
+  gap: 1rem;
   padding: 1rem 1.25rem;
   background: var(--band);
 }
 
 .stat-num {
-  flex: 0 0 8.25rem;   /* 最も幅のある「100名以上」に合わせ、ラベルの左端を揃える */
+  flex: none;
   font-family: var(--serif);
   font-weight: 600;
   font-size: 2.25rem;
@@ -495,7 +497,8 @@ details > p {
   /* 幅に余裕があるので実績は3つ横に並べる */
   .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .stats li { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1.25rem 1rem; }
-  .stat-num { flex: none; }
+  /* 説明の行数が違っても、数字は各カードの下端で揃える */
+  .stats li { justify-content: space-between; }
 
   .hero-photo img {
     width: 100%;
