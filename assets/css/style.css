@@ -167,6 +167,43 @@ img {
   line-height: 1.8;
 }
 
+/* ヒーロー下の目次。CTA と競わないよう、控えめな文字色と罫線だけで組む */
+.toc {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+.toc-title {
+  color: var(--graphite);
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+}
+
+.toc ol {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0 1.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.toc a {
+  display: block;
+  padding-block: 0.5rem;     /* タップしやすい高さを確保する */
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.toc a::before {
+  content: "↓";
+  margin-right: 0.4em;
+  color: var(--graphite);
+}
+
+.toc a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+
 /* ========================================
    指導の流れ
    ======================================== */
@@ -348,6 +385,9 @@ details > p {
     padding-left: 3rem;
   }
 
+  /* スマホは1列（2列だと項目名が語の途中で折り返す） */
+  .toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
   .hero-photo img {
     width: 100%;
     max-width: 17rem;
@@ -360,6 +400,8 @@ details > p {
    モーション
    ======================================== */
 @media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+
   .hero-body,
   .hero-photo {
     animation: rise 0.6s ease-out both;
