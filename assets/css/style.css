@@ -269,6 +269,14 @@ details > p {
   transition: background-color 0.15s ease;
 }
 
+/* モバイルでは写真・本文と同じ幅いっぱいにして左右の端を揃える */
+@media (max-width: 1023px) {
+  .btn {
+    display: flex;
+    width: 100%;
+  }
+}
+
 .btn:hover,
 .btn:focus-visible { background: var(--vermil-d); }
 
