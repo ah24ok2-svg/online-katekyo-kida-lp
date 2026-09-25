@@ -12,6 +12,7 @@
   --rule:     #DFDCD4;
   --vermil:   #D0332A;
   --vermil-d: #A82820;
+  --band:     #F4F1EA;   /* セクションを区切る薄い帯。色数は増やさず明度差だけで変化をつける */
 
   --serif: "Zen Old Mincho", serif;
   --sans:  "Zen Kaku Gothic New", sans-serif;
@@ -198,47 +199,109 @@ img {
   line-height: 1.8;
 }
 
-/* ヒーロー下の目次。CTA と競わないよう、控えめな文字色と罫線だけで組む */
-.toc {
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--rule);
-}
-
-.toc-title {
-  color: var(--graphite);
-  font-size: 0.8125rem;
-  letter-spacing: 0.08em;
-}
-
+/* ヒーロー下の目次。CTA と競わないよう、小さな横並びのリンクにする */
 .toc ul {
   list-style: none;
-  margin: 0.5rem 0 0;
+  margin: 0;
   padding: 0;
-  display: grid;
-  gap: 0 1.5rem;
-  font-size: 0.9375rem;
-  line-height: 1.6;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.4;
 }
 
 .toc a {
   display: block;
-  padding-block: 0.5rem;     /* タップしやすい高さを確保する */
-  color: var(--ink);
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--rule);
+  color: var(--graphite);
   text-decoration: none;
 }
 
-.toc a::before {
-  content: "";
-  display: inline-block;
-  width: 0.35em;
-  height: 0.35em;
-  margin-right: 0.6em;
-  border-radius: 50%;
-  background: var(--graphite);
-  vertical-align: 0.2em;
+.toc a:hover { color: var(--ink); border-color: var(--graphite); }
+
+/* ========================================
+   背景帯（お悩み・お申し込み）
+   ======================================== */
+.band { background: var(--band); }
+
+/* ========================================
+   実績の数字
+   ======================================== */
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
 }
 
-.toc a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+.stats li {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
+  background: var(--band);
+}
+
+.stat-num {
+  flex: 0 0 8.25rem;   /* 最も幅のある「100名以上」に合わせ、ラベルの左端を揃える */
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2.25rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.stat-num small,
+.plan-price small {
+  font-size: 0.45em;
+  margin-left: 0.15em;
+}
+
+.stat-label {
+  color: var(--graphite);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* ========================================
+   料金プラン
+   ======================================== */
+.plans {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.plans li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 0.5rem;
+  border: 1px solid var(--rule);
+  text-align: center;
+}
+
+.plan-name { font-size: 0.875rem; font-weight: 500; }
+
+.plan-price {
+  margin-top: 0.5rem;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.plan-unit {
+  margin-top: 0.25rem;
+  color: var(--graphite);
+  font-size: 0.75rem;
+}
 
 /* ========================================
    指導の流れ
@@ -429,8 +492,10 @@ details > p {
 
   .hero-photo figcaption { margin-top: 1rem; }
 
-  /* スマホは1列（2列だと項目名が語の途中で折り返す） */
-  .toc ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* 幅に余裕があるので実績は3つ横に並べる */
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .stats li { flex-direction: column; align-items: flex-start; gap: 0.75rem; padding: 1.25rem 1rem; }
+  .stat-num { flex: none; }
 
   .hero-photo img {
     width: 100%;

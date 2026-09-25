@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500&family=Zen+Old+Mincho:wght@500;600&display=swap">
-<link rel="stylesheet" href="assets/css/style.css?v=20260925-7">
+<link rel="stylesheet" href="assets/css/style.css?v=20260925-9">
 
 <script type="application/ld+json">
 {
@@ -76,16 +76,15 @@
           <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScOPqG9miC_g9i534J-79wYgB1RrjtzoHpHmGFj-Q4R5QNJWg/viewform" target="_blank" rel="noopener">まずは無料で相談する</a>
         </p>
         <p class="note">現在、中学生の全科目を10名お受けしています。</p>
-        <nav class="toc" aria-labelledby="toc-title">
-          <p class="toc-title" id="toc-title">目次</p>
+        <nav class="toc" aria-label="目次">
           <ul>
-            <li><a href="#worries">こんなことで悩んでいませんか</a></li>
+            <li><a href="#worries">お悩み</a></li>
             <li><a href="#tutor">講師について</a></li>
             <li><a href="#policy">指導方針</a></li>
             <li><a href="#flow">指導の流れ</a></li>
             <li><a href="#price">料金</a></li>
             <li><a href="#faq">よくある質問</a></li>
-            <li><a href="#contact">無料相談のお申し込み</a></li>
+            <li><a href="#contact">お申し込み</a></li>
           </ul>
         </nav>
       </div>
@@ -93,7 +92,7 @@
   </header>
 
   <!-- 2. こんなことで悩んでいませんか -->
-  <section class="section" id="worries">
+  <section class="section band" id="worries">
     <div class="wrap">
       <h2>こんなことで悩んでいませんか</h2>
       <ul class="list">
@@ -111,15 +110,16 @@
   <section class="section" id="tutor">
     <div class="wrap">
       <h2>講師について</h2>
+      <ul class="stats">
+        <li><span class="stat-num">16<small>年</small></span><span class="stat-label"><span class="nb">学習塾での指導歴</span><span class="nb">（非常勤時代含む）</span></span></li>
+        <li><span class="stat-num">100<small>名以上</small></span><span class="stat-label"><span class="nb">第一志望に合格した</span><span class="nb">中3生（年間）</span></span></li>
+        <li><span class="stat-num">1<small>位</small></span><span class="stat-label"><span class="nb">講師指導力</span><span class="nb">アンケート</span><span class="nb">（2021年度・</span><span class="nb">全64名中）</span></span></li>
+      </ul>
       <ul class="list">
         <li>京都教育大学卒／教員免許取得</li>
         <li>関西大手集団指導塾にて教室文系責任者として10年経験。最難関コースを4年間担当</li>
-        <li>年間100名以上の中3生を第一志望合格へ</li>
-        <li>2021年度 講師指導力アンケート 全64名中1位</li>
         <li>個別指導塾でリーダーとして4教室を統括</li>
-        <li>指導歴 16年（非常勤時代含む）</li>
       </ul>
-      <p>集団指導と個別指導の両方を経験してきました。集団では、全体を引き上げる授業の組み立てを。個別では、一人ひとりの詰まっている場所の見つけ方を学びました。</p>
       <p>学校のテストで５科目合計100点取れない生徒から偏差値70越えの生徒たちまで、幅広く指導を経験してきました。集団指導でも個別指導でも、成績をあげる上で結局大事なのは「塾がない日の過ごし方」でした。<span class="mark">ここを改善しなければ、どれだけ回数を重ねて塾に通っても、授業を集中して受けても成績が上がることはありません。</span></p>
 
       <!-- 自己紹介動画（60〜90秒）の埋め込み枠。撮影後、下のコメントを外して iframe を入れる。
@@ -178,14 +178,24 @@
   <section class="section" id="price">
     <div class="wrap">
       <h2>料金</h2>
+      <ul class="plans">
+        <li>
+          <span class="plan-name">ワーク補助コース</span>
+          <span class="plan-price">2,000<small>円</small></span>
+          <span class="plan-unit">1回60分・税込</span>
+        </li>
+        <li>
+          <span class="plan-name">中3入試対策コース</span>
+          <span class="plan-price">3,000<small>円</small></span>
+          <span class="plan-unit">1回60分・税込</span>
+        </li>
+      </ul>
+      <p class="note">月額制ではなく、授業1回ごとの料金です。例：ワーク補助コースで月3回授業があった場合、その月の料金は6,000円です。</p>
       <ul class="list">
-        <li>ワーク補助コース：<span class="nb">1回（60分）2,000円（税込）</span></li>
-        <li>中3入試対策コース：<span class="nb">1回（60分）3,000円（税込）</span></li>
         <li>入会金・教材費はいただきません（必要があればご提案いたします）</li>
         <li>お支払い方法：銀行振込 または PayPay</li>
-        <li>解約：解約を希望される月の15日までにご連絡ください（例：10月末での解約をご希望の場合は、10月15日までにご連絡ください）</li>
+        <li>解約：解約を希望される月の15日までにご連絡ください</li>
       </ul>
-      <p class="note">料金は月ごとの定額ではなく、授業1回ごとにいただきます。例：ワーク補助コースで月3回授業があった場合、その月の料金は6,000円です。</p>
       <p>無料相談と体験授業までは費用がかかりません。料金が発生するのは、開始を決めていただいたあとからです。</p>
     </div>
   </section>
@@ -217,7 +227,7 @@
 
       <details>
         <summary>途中でやめることはできますか</summary>
-        <p>できます。解約を希望される月の15日までにご連絡ください。理由を伺うことはありますが、引き止めはしません。</p>
+        <p>できます。解約を希望される月の15日までにご連絡ください（例：10月末での解約をご希望の場合は、10月15日まで）。理由を伺うことはありますが、引き止めはしません。</p>
       </details>
 
       <details>
@@ -233,7 +243,7 @@
   </section>
 
   <!-- 8. 申し込み -->
-  <section class="section" id="contact">
+  <section class="section band" id="contact">
     <div class="wrap">
       <h2>無料相談のお申し込み</h2>
       <p>フォームからお送りください。24時間以内に返信します。現在の受付枠は10名です。</p>
