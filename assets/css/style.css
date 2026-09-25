@@ -179,7 +179,7 @@ img {
   letter-spacing: 0.08em;
 }
 
-.toc ol {
+.toc ul {
   list-style: none;
   margin: 0.5rem 0 0;
   padding: 0;
@@ -197,9 +197,14 @@ img {
 }
 
 .toc a::before {
-  content: "↓";
-  margin-right: 0.4em;
-  color: var(--graphite);
+  content: "";
+  display: inline-block;
+  width: 0.35em;
+  height: 0.35em;
+  margin-right: 0.6em;
+  border-radius: 50%;
+  background: var(--graphite);
+  vertical-align: 0.2em;
 }
 
 .toc a:hover { text-decoration: underline; text-underline-offset: 0.25em; }
@@ -386,7 +391,7 @@ details > p {
   }
 
   /* スマホは1列（2列だと項目名が語の途中で折り返す） */
-  .toc ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .toc ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
   .hero-photo img {
     width: 100%;
