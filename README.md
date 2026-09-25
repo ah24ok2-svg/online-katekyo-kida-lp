@@ -16,11 +16,6 @@
 │       ├── kida.jpg               顔写真
 │       └── ogp.jpg                OGP 画像 1200x630（SNS・LINE で共有したときに表示）
 ├── robots.txt
-├── preview/                  プレビュー専用（本番公開時に削除する）
-│   ├── build.py                  {{ }} に仮データを流し込む
-│   └── values.json               仮データの定義
-├── .github/workflows/
-│   └── preview-pages.yml     プレビューを Pages に自動デプロイ
 └── README.md
 ```
 
@@ -58,47 +53,20 @@ Google フォームの項目は6つに絞る（保護者氏名 / メールアド
 
 `index.html` の「講師について」内に、60〜90秒の自己紹介動画を入れる枠をコメントで残してあります。撮影後、コメントを外して `iframe` の `src` を入れる。CSS（`.video`）は用意済み。
 
-## プレビュー（現在の公開設定）
+## 公開設定
 
-雰囲気を確認するため、GitHub Pages に**仮データ入りのプレビュー**を出しています。
+GitHub Pages で `claude/new-session-c1a0ms` ブランチのルートをそのまま配信しています（ビルドなし）。
+push すると数分で反映されます。
 
-`.github/workflows/preview-pages.yml` が push のたびに `preview/build.py` を実行し、
-`{{ }}` に `preview/values.json` の仮データを流し込んだものを配信します。
-**ソースの HTML は `{{ }}` のまま**なので、プレビュー用の値が本番に紛れ込むことはありません。
+- Settings → Pages → Build and deployment → Source：**Deploy from a branch** / `claude/new-session-c1a0ms` / `/(root)`
+- URL：`https://ah24ok2-svg.github.io/online-katekyo-kida-lp/`
+- 特商法表記・プライバシーポリシーは `noindex`、`robots.txt` でもクロール対象外にしている（LP 本体のみ検索対象）
 
-プレビュー版には次の2つが自動で入ります。
-
-- 全ページに `noindex, nofollow`、`robots.txt` は `Disallow: /`（検索に載りません）
-- ページ上部に「数値はすべて仮」と書いた告知バー
-
-仮の値を変えたいときは `preview/values.json` を編集して push してください。
-
-### 初回だけ必要な設定
-
-GitHub Pages の有効化だけは Actions から自動化できません
-（`GITHUB_TOKEN` に Pages サイトの新規作成権限がないため）。
-**リポジトリの Settings → Pages → Build and deployment → Source を「GitHub Actions」に変更**してください。
-一度設定すれば、以降は push のたびに自動でデプロイされます。
-
-設定後、Actions タブの「Preview on GitHub Pages」から Re-run するか、何か push すると公開されます。
-URL は `https://ah24ok2-svg.github.io/online-katekyo-kida-lp/` です。
-
-### ローカルで同じものを見る
+### ローカルで確認する
 
 ```sh
-python3 preview/build.py _site
-cd _site && python3 -m http.server 8000
+python3 -m http.server 8000
 ```
-
-`{{ }}` のまま（仮データなし）で見たいときは、リポジトリのルートで直接 `python3 -m http.server 8000`。
-
-## 本番公開に切り替える
-
-1. 上の「公開までにやること」を済ませる（`{{ }}` を実際の値で置換、画像を配置）
-2. `preview/` と `.github/workflows/preview-pages.yml` を削除する
-3. `main` ブランチにマージし、Settings → Pages → Source: **Deploy from a branch** → `main` / `(root)` に変更する
-
-プレビュー用の仕組みを残したまま本番にすると、告知バーと `noindex` が付いたままになります。
 
 ## 確定済みの値
 
