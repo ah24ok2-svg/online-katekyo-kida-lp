@@ -111,11 +111,22 @@ img {
 
 .hero .lede { color: var(--graphite); }
 
+/* モバイルでは本文と同じ幅いっぱいに置き、左右の端を揃える。
+   縦長のままだと見出しが画面外に押し出されるので、正方形に切り出す */
 .hero-photo img {
   width: 100%;
-  max-width: 260px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: 50% 20%;
   margin-bottom: 2rem;
 }
+
+/* 見出し先頭の「 は字面の左に半角分の空きがあり、行頭が引っ込んで見える。
+   その分だけ左へぶら下げて、下の本文と左端を揃える */
+.hang { margin-left: -0.5em; }
+
+/* 語の途中で折り返さないためのまとまり */
+.nb { display: inline-block; }
 
 .section .hero-grid > * + * { margin-top: 0; }
 
@@ -332,6 +343,7 @@ details > p {
   .hero-photo img {
     width: 100%;
     max-width: 17rem;
+    aspect-ratio: auto;
     margin-bottom: 0;
   }
 }
