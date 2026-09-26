@@ -291,12 +291,10 @@ img {
   text-align: center;
 }
 
-.plan-name { font-size: 0.875rem; font-weight: 500; }
+.section .wrap > h3.plan-course { margin-top: 1.5rem; }
+.section .wrap > .plan-course + .plans { margin-top: 0.75rem; }
 
-.plan-grade {
-  color: var(--graphite);
-  font-size: 0.8125rem;
-}
+.plan-name { font-size: 0.9375rem; font-weight: 500; }
 
 /* コース名から授業内容が固定だと受け取られないよう、カードのすぐ下に添える */
 .section .wrap > .plans + .plan-memo {
