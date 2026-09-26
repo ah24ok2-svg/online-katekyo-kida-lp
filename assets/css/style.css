@@ -287,7 +287,7 @@ img {
   flex-direction: column;
   align-items: center;
   padding: 1.25rem 0.5rem;
-  border: 1px solid var(--rule);
+  background: var(--band);   /* 講師の実績カードと同じ面の色で揃える */
   text-align: center;
 }
 
