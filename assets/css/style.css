@@ -408,6 +408,7 @@ img {
 .estimate .note { margin-top: 0.5rem; }
 
 .note a { color: var(--graphite); text-underline-offset: 0.2em; }
+.list a { color: var(--ink); text-underline-offset: 0.2em; }
 
 .plans {
   list-style: none;
