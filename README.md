@@ -15,6 +15,7 @@
 │       ├── favicon.svg
 │       ├── kida.jpg               顔写真
 │       ├── study-portal-plan.png  Study Portal の計画画面（指導方針で使用）
+│       ├── study-portal-submit.png Study Portal のお子様用の写真提出画面（授業のやり方で使用。テスト用アカウントの画面）
 │       └── ogp.jpg                OGP 画像 1200x630（SNS・LINE で共有したときに表示）
 ├── robots.txt
 └── README.md
