@@ -537,7 +537,7 @@ img {
 }
 
 /* ========================================
-   必要な環境の図
+   授業のやり方の図
    ======================================== */
 .setup { margin-inline: 0; }
 
@@ -559,6 +559,7 @@ img {
 .s-dash { stroke: var(--graphite); stroke-width: 1.25; stroke-dasharray: 4 5; }
 .s-fill { fill: var(--band); stroke: var(--ink); stroke-width: 2; stroke-linejoin: round; }
 .s-paper { fill: var(--paper); stroke: var(--ink); stroke-width: 1.5; }
+.s-mark { fill: none; stroke: var(--vermil); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }   /* 講師の書き込み */
 .s-badge { fill: var(--ink); }
 .s-num {
   fill: var(--paper);
