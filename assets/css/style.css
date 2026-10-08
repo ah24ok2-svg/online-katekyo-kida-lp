@@ -537,6 +537,24 @@ img {
 }
 
 /* ========================================
+   Study Portal の画面
+   ======================================== */
+.app-shot { margin-inline: 0; }
+
+.app-shot img {
+  width: 100%;
+  max-width: 20rem;
+  border: 1px solid var(--rule);
+}
+
+.app-shot figcaption {
+  margin-top: 0.5rem;
+  color: var(--graphite);
+  font-size: 0.875rem;
+  line-height: 1.8;
+}
+
+/* ========================================
    授業のやり方の図
    ======================================== */
 .setup { margin-inline: 0; }
@@ -806,6 +824,10 @@ details > p a { color: var(--graphite); text-underline-offset: 0.2em; }
 
   .fits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .fits li:last-child { grid-column: 1 / -1; }
+
+  /* 画面の写真と説明を横に並べる */
+  .app-shot { display: flex; align-items: flex-end; gap: 1.5rem; }
+  .app-shot img { flex: none; width: 18rem; }
 
   /* 授業の流れは3つ横に並べ、矢印を右向きにする */
   .lesson { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
